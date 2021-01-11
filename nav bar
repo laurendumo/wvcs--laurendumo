@@ -1,47 +1,83 @@
-
 <html>
-  <body>
-  
-<div class="topnav">
-  <a class="active" href="#home">home</a>
-  <a href="#games">games</a>
-  <a href="#art">art</a>
-  <a href="#about">about</a>
-</div>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
 
-<a href=”games”> <iframe src="https://scratch.mit.edu/projects/425891782/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe> 
-</a>
-  
-  <a href=”about”> <img src="Personal Artifact.jpg"> </a>
-  
-  <a href=”about”> <iframe src="https://studio.code.org/projects/applab/QN-G44Evk3gW3HES84zCsIcf1RiKs4n3ZMEQkeyEjno/embed" allowtransparency="true" width="485" height="752" frameborder="0" scrolling="no" allowfullscreen></iframe> </a>
-  
- <style>
-
-       .topnav {
-  background-color: black;
+.tab {
   overflow: hidden;
+  border: 1px solid;
+  background-color: black;
 }
 
-.topnav a {
+.tab button {
+  background-color: black;
   float: left;
-  color: white;
-  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
   padding: 14px 16px;
-  text-decoration: none;
+  transition: 0.3s;
   font-size: 17px;
 }
 
-.topnav a:hover {
+.tab button:hover {
   background-color: grey;
-  color: white;
 }
 
-.topnav a.active {
-  background-color:black;
-  color: white;
+.tab button.active {
+  background-color: black;
 }
+
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTopic(event, 'games')">games</button>
+  <button class="tablinks" onclick="openTopic(event, 'art')">art</button>
+  <button class="tablinks" onclick="openTopic(event, 'about')">about</button>
+</div>
+
+<div id="games" class="tabcontent">
+  <h3>games</h3>
+  <p> <iframe src="https://scratch.mit.edu/projects/425891782/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+</p>
+</div>
+
+<div id="art" class="tabcontent">
+  <h3>art/h3>
+  <p><a href=”about”> <img src="Personal Artifact.jpg"> </a></p> 
+</div>
+
+<div id="about" class="tabcontent">
+  <h3>about</h3>
+  <p><iframe src="https://studio.code.org/projects/applab/QN-G44Evk3gW3HES84zCsIcf1RiKs4n3ZMEQkeyEjno/embed" allowtransparency="true" width="485" height="752" frameborder="0" scrolling="no" allowfullscreen></iframe>
+</p>
+</div>
+
+<script>
+function openTopic(evt, topicName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(topicName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
    
- </style>
-  
-</html>
+</body>
+</html> 
